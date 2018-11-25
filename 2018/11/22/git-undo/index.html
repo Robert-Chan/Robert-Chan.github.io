@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="都是用来做撤销的，来详细看下怎么用。    命令 Scope 常用于     git reset Commit-level 丢弃私有分支上的提交，或丢弃未提交的修改   git reset File-level Unstage a file   git checkout Commit-level 分支间切换，或查看历史提交快照   git checkout File-level 丢弃工作目录的修改">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git撤销操作 - reset、revert、checkout">
+<meta property="og:url" content="http://chenxiaoxu.studio/2018/11/22/git-undo/index.html">
+<meta property="og:site_name" content="The Southern Dynasties">
+<meta property="og:description" content="都是用来做撤销的，来详细看下怎么用。    命令 Scope 常用于     git reset Commit-level 丢弃私有分支上的提交，或丢弃未提交的修改   git reset File-level Unstage a file   git checkout Commit-level 分支间切换，或查看历史提交快照   git checkout File-level 丢弃工作目录的修改">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-22T03:20:17.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git撤销操作 - reset、revert、checkout">
+<meta name="twitter:description" content="都是用来做撤销的，来详细看下怎么用。    命令 Scope 常用于     git reset Commit-level 丢弃私有分支上的提交，或丢弃未提交的修改   git reset File-level Unstage a file   git checkout Commit-level 分支间切换，或查看历史提交快照   git checkout File-level 丢弃工作目录的修改">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chenxiaoxu.studio/2018/11/22/git-undo/">
+
+
+
+
+
+  <title>git撤销操作 - reset、revert、checkout | The Southern Dynasties</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The Southern Dynasties</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">聊技术，吹牛逼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenxiaoxu.studio/2018/11/22/git-undo/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobertChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Southern Dynasties">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git撤销操作 - reset、revert、checkout</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-22T10:48:34+08:00">
+                2018-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/22/git-undo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/22/git-undo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>都是用来做撤销的，来详细看下怎么用。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>Scope</th>
+<th>常用于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git reset</td>
+<td>Commit-level</td>
+<td>丢弃<strong>私有</strong>分支上的提交，或丢弃未提交的修改</td>
+</tr>
+<tr>
+<td>git reset</td>
+<td>File-level</td>
+<td>Unstage a file</td>
+</tr>
+<tr>
+<td>git checkout</td>
+<td>Commit-level</td>
+<td>分支间切换，或查看历史提交快照</td>
+</tr>
+<tr>
+<td>git checkout</td>
+<td>File-level</td>
+<td>丢弃工作目录的修改</td>
+</tr>
+<tr>
+<td>git revert</td>
+<td>Commit-level</td>
+<td>撤销公共分支的提交</td>
+</tr>
+<tr>
+<td>git revert</td>
+<td>File-level</td>
+<td>没有文件层级的操作</td>
+</tr>
+</tbody>
+</table>
+<p><code>git revert &lt;Commit-id&gt;</code> 是通过对指定的提交做反向的修改，然后提交一个新的提交。</p>
+<p><code>git checkout &lt;Commit-id&gt;</code> 切到指定的提交，进入“detached HEAD”状态，就是将 HEAD指针 指向指定的提交，可以基于这个节点作一些修改提交，不会影响到任何分支，直接切到原来的提交上去。如果想要保留这些提交，可以在以新的提交去创建一个新的分支 <code>git checkout -b &lt;new-branch-name&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">robertdeMacBook-Pro% git checkout a378a93</span><br><span class="line">Note: checking out <span class="string">'a378a93'</span>.</span><br><span class="line"></span><br><span class="line">You are <span class="keyword">in</span> <span class="string">'detached HEAD'</span> state. You can look around, make experimental</span><br><span class="line">changes and commit them, and you can discard any commits you make <span class="keyword">in</span> this</span><br><span class="line">state without impacting any branches by performing another checkout.</span><br><span class="line"></span><br><span class="line">If you want to create a new branch to retain commits you create, you may</span><br><span class="line"><span class="keyword">do</span> so (now or later) by using -b with the checkout <span class="built_in">command</span> again. Example:</span><br><span class="line"></span><br><span class="line">  git checkout -b &lt;new-branch-name&gt;</span><br><span class="line"></span><br><span class="line">HEAD is now at a378a93 project initiate</span><br></pre></td></tr></table></figure>
+<p><code>git reset</code> 是通过对指定的提交 改变”three trees“（工作目录、暂存区、提交历史），revert针对“three trees”有3种模式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft|--hard] HEAD~    </span><br><span class="line"><span class="comment">##仓库（提交历史）回到指定的提交</span></span><br><span class="line"><span class="comment">##--soft 工作目录和暂存区都不变</span></span><br><span class="line"><span class="comment">##--mixed 暂存区变成和指定的提交一致，工作目录不受影响</span></span><br><span class="line"><span class="comment">##--hard 暂存区和工作目录都回到指定提交，会直接覆盖工作目录</span></span><br><span class="line">                          HEAD~x    x是撤销的提交个数</span><br><span class="line">                          &lt;commitid&gt; 提交<span class="built_in">hash</span></span><br></pre></td></tr></table></figure>
+<p>要搞清楚的一点的是，以上所说的变不变，指的是<code>git reset</code>前后的工作目录、暂存区相对于他们本身变不变，而不是，工作目录相对于暂存区，暂存区相对于仓库（最新提交,HEAD）。<br>比如，<code>git reset --soft &lt;commit-id&gt;</code>，操作前后，工作目录、暂存区的内容都是不变的，但是仓库（提交历史的最新提交，HEAD）回到了<code>&lt;commit-id&gt;</code>处，所以暂存区相对的仓库肯定是有修改的。</p>
+<p><strong>注意：</strong><code>checkout</code>和<code>reset</code>通常用于作本地或者私有分支的撤销。它们修改提交历史和仓库，推送到共享的远程仓库时可能会导致冲突。<code>revert</code>被认为是针对“公共撤销”的安全操作，因为它创建一个新的提交，不会重写其他成员可能依赖的提交历史。</p>
+<blockquote>
+<p>参考：<a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting" target="_blank" rel="noopener">reset/revert/checkout</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/23/windows-powershell/" rel="next" title="Windows PowerShell使用">
+                <i class="fa fa-chevron-left"></i> Windows PowerShell使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">RobertChan</p>
+              <p class="site-description motion-element" itemprop="description">聊技术，吹牛逼</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RobertChan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://RobertChan.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://chenxiaoxu.studio/2018/11/22/git-undo/';
+          this.page.identifier = '2018/11/22/git-undo/';
+          this.page.title = 'git撤销操作 - reset、revert、checkout';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://RobertChan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
