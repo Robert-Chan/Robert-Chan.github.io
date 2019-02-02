@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="windows,">
+  <meta name="keywords" content="java,vscode,maven,">
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。 如何支持vim对于常用命令如 ls cat echo 等，都可以正常使用，但是对于 vim 却不支持。我们通过自定义别名的方式可以解决这个问题。 1set-a">
-<meta name="keywords" content="windows">
+<meta name="description" content="用vscode写java的时候遇到一个问题，尽快我机器上的是JDK1.8，但是开发环境无法识别JDK1.8的语法。 在vscode的Language support for Java插件的issues中找到了答案。 与Maven的Compiler插件设置有关，需要指定source和target为1.8。在pom.xml中添加以下两个属性：12345678&amp;lt;project&amp;gt;  [...]">
+<meta name="keywords" content="java,vscode,maven">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows PowerShell使用">
-<meta property="og:url" content="http://chenxiaoxu.studio/2017/08/23/windows-powershell/index.html">
+<meta property="og:title" content="解决vscode-java 无法识别jdk1.8语法的问题">
+<meta property="og:url" content="http://chenxiaoxu.studio/2019/02/02/problem-java-vscode-maven-md/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。 如何支持vim对于常用命令如 ls cat echo 等，都可以正常使用，但是对于 vim 却不支持。我们通过自定义别名的方式可以解决这个问题。 1set-a">
+<meta property="og:description" content="用vscode写java的时候遇到一个问题，尽快我机器上的是JDK1.8，但是开发环境无法识别JDK1.8的语法。 在vscode的Language support for Java插件的issues中找到了答案。 与Maven的Compiler插件设置有关，需要指定source和target为1.8。在pom.xml中添加以下两个属性：12345678&amp;lt;project&amp;gt;  [...]">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://chenxiaoxu.studio/images/powershell-003.png">
-<meta property="og:image" content="http://chenxiaoxu.studio/images/powershell-001.png">
-<meta property="og:updated_time" content="2018-11-25T08:19:03.303Z">
+<meta property="og:image" content="http://chenxiaoxu.studio/images/problem-java-vscode-maven-01.png">
+<meta property="og:updated_time" content="2019-02-02T07:48:27.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows PowerShell使用">
-<meta name="twitter:description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。 如何支持vim对于常用命令如 ls cat echo 等，都可以正常使用，但是对于 vim 却不支持。我们通过自定义别名的方式可以解决这个问题。 1set-a">
-<meta name="twitter:image" content="http://chenxiaoxu.studio/images/powershell-003.png">
+<meta name="twitter:title" content="解决vscode-java 无法识别jdk1.8语法的问题">
+<meta name="twitter:description" content="用vscode写java的时候遇到一个问题，尽快我机器上的是JDK1.8，但是开发环境无法识别JDK1.8的语法。 在vscode的Language support for Java插件的issues中找到了答案。 与Maven的Compiler插件设置有关，需要指定source和target为1.8。在pom.xml中添加以下两个属性：12345678&amp;lt;project&amp;gt;  [...]">
+<meta name="twitter:image" content="http://chenxiaoxu.studio/images/problem-java-vscode-maven-01.png">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://chenxiaoxu.studio/2017/08/23/windows-powershell/">
+  <link rel="canonical" href="http://chenxiaoxu.studio/2019/02/02/problem-java-vscode-maven-md/">
 
 
 
 
 
-  <title>Windows PowerShell使用 | The Southern Dynasties</title>
+  <title>解决vscode-java 无法识别jdk1.8语法的问题 | The Southern Dynasties</title>
   
 
 
@@ -236,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenxiaoxu.studio/2017/08/23/windows-powershell/">
+    <link itemprop="mainEntityOfPage" href="http://chenxiaoxu.studio/2019/02/02/problem-java-vscode-maven-md/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RobertChan">
@@ -253,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Windows PowerShell使用</h1>
+          <h1 class="post-title" itemprop="name headline">解决vscode-java 无法识别jdk1.8语法的问题</h1>
         
 
         <div class="post-meta">
@@ -265,8 +264,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-23T16:11:43+08:00">
-                2017-08-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T15:04:19+08:00">
+                2019-02-02
               </time>
             
 
@@ -288,8 +287,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
+                  <a href="/categories/issues/" itemprop="url" rel="index">
+                    <span itemprop="name">issues</span>
                   </a>
                 </span>
 
@@ -306,8 +305,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/23/windows-powershell/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/23/windows-powershell/" itemprop="commentCount"></span>
+                <a href="/2019/02/02/problem-java-vscode-maven-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/02/problem-java-vscode-maven-md/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -335,22 +334,10 @@
       
 
       
-        <p>PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。</p>
-<p>PowerShell拥有完善的帮助文档。且通过 <code>Get-Help</code> 可以得到相关的帮助信息。</p>
-<h3 id="如何支持vim"><a href="#如何支持vim" class="headerlink" title="如何支持vim"></a>如何支持vim</h3><p>对于常用命令如 <code>ls</code> <code>cat</code> <code>echo</code> 等，都可以正常使用，但是对于 <code>vim</code> 却不支持。我们通过自定义别名的方式可以解决这个问题。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-alias</span> vim <span class="string">"C:\Program Files (x86)\Vim\vim80\gvim.exe"</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/powershell-003.png" alt="成功使用vim"></p>
-<p>大部分命令都用别名，可以通过 <code>Get-Alias</code> 查看，本身都是 <code>动词-名词</code> 的形式。这个功能很有用。</p>
-<p>如未安装Vim，要先去下载安装。</p>
-<h3 id="如何设置持久性别名"><a href="#如何设置持久性别名" class="headerlink" title="如何设置持久性别名"></a>如何设置持久性别名</h3><p>当你重新启动PowerShell的时候，你会发现，之前设置的 <code>vim</code> 又不起作用了，<code>Get-Alias vim</code> 也查不到。因为你创建的别名仅在当前会话内有效。</p>
-<p>解决这个问题，需要将脚本加到 personal profile 里：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="variable">$env:USERPROFILE</span>\Documents</span><br><span class="line"></span><br><span class="line">md WindowsPowerShell -ErrorAction SilentlyContinue</span><br><span class="line"></span><br><span class="line">cd WindowsPowerShell</span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Item</span> Microsoft.PowerShell_profile.ps1 -ItemType <span class="string">"file"</span> -ErrorAction SilentlyContinue</span><br><span class="line"></span><br><span class="line">powershell_ise.exe .\Microsoft.PowerShell_profile.ps1</span><br></pre></td></tr></table></figure>
-<p>然后将alias命令写入打开的Microsoft.PowerShell_profile.ps1文件里面并保存。</p>
-<p>重启PowerShell就可以了。</p>
-<p>如遇到脚本不允许执行的问题，使用 <code>set-executionpolicy remotesigned</code> 将计算机上的执行策略更改为 RemoteSigned。具体参考 <code>get-help  about_signing</code>。</p>
-<h3 id="Windows-Server-2008-R2-默认没有-Windows-PowerShell-ISE"><a href="#Windows-Server-2008-R2-默认没有-Windows-PowerShell-ISE" class="headerlink" title="Windows Server 2008 R2 默认没有 Windows PowerShell ISE"></a>Windows Server 2008 R2 默认没有 Windows PowerShell ISE</h3><p>Windows PowerShell 集成脚本环境 (ISE) 允许在友好的、语法着色的环境中运行命令并编写、测试和调试脚本。</p>
-<p>需要在服务器管理添加功能中启用之：</p>
-<p><img src="/images/powershell-001.png" alt="启用ISE"></p>
+        <p>用vscode写java的时候遇到一个问题，尽快我机器上的是JDK1.8，但是开发环境无法识别JDK1.8的语法。<br><img src="/images/problem-java-vscode-maven-01.png" alt="无法识别‘&lt;&gt;’语法"></p>
+<p>在vscode的<code>Language support for Java</code>插件的<a href="https://github.com/redhat-developer/vscode-java/issues/550" target="_blank" rel="noopener">issues</a>中找到了答案。</p>
+<p>与Maven的Compiler插件设置有关，需要指定<code>source</code>和<code>target</code>为1.8。<br>在pom.xml中添加以下两个属性：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">  [...]</span><br><span class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">  [...]</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>或者直接配置插件：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">  [...]</span><br><span class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    [...]</span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    [...]</span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">  [...]</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -368,7 +355,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/windows/" rel="tag"># windows</a>
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/vscode/" rel="tag"># vscode</a>
+          
+            <a href="/tags/maven/" rel="tag"># maven</a>
           
         </div>
       
@@ -381,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/python-sortarithmetic/" rel="next" title="常用排序算法的Python实现">
-                <i class="fa fa-chevron-left"></i> 常用排序算法的Python实现
+              <a href="/2018/11/22/git-undo/" rel="next" title="git撤销操作 - reset、revert、checkout">
+                <i class="fa fa-chevron-left"></i> git撤销操作 - reset、revert、checkout
               </a>
             
           </div>
@@ -390,10 +381,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/22/git-undo/" rel="prev" title="git撤销操作 - reset、revert、checkout">
-                git撤销操作 - reset、revert、checkout <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -455,17 +442,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -525,22 +503,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何支持vim"><span class="nav-number">1.</span> <span class="nav-text">如何支持vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何设置持久性别名"><span class="nav-number">2.</span> <span class="nav-text">如何设置持久性别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Server-2008-R2-默认没有-Windows-PowerShell-ISE"><span class="nav-number">3.</span> <span class="nav-text">Windows Server 2008 R2 默认没有 Windows PowerShell ISE</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -698,9 +660,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://chenxiaoxu.studio/2017/08/23/windows-powershell/';
-          this.page.identifier = '2017/08/23/windows-powershell/';
-          this.page.title = 'Windows PowerShell使用';
+          this.page.url = 'http://chenxiaoxu.studio/2019/02/02/problem-java-vscode-maven-md/';
+          this.page.identifier = '2019/02/02/problem-java-vscode-maven-md/';
+          this.page.title = '解决vscode-java 无法识别jdk1.8语法的问题';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://RobertChan.disqus.com/embed.js';
