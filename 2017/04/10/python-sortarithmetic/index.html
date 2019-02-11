@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。 冒泡排序时间复杂度O(n²) 稳定1234567def bubble_sort(L):	for x in range(len(L)-1): ##每次最大元素沉到最下面，len(L)-1 次		for y in range(len(L)-1-">
+<meta name="description" content="学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。">
 <meta name="keywords" content="python,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用排序算法的Python实现">
 <meta property="og:url" content="http://chenxiaoxu.studio/2017/04/10/python-sortarithmetic/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。 冒泡排序时间复杂度O(n²) 稳定1234567def bubble_sort(L):	for x in range(len(L)-1): ##每次最大元素沉到最下面，len(L)-1 次		for y in range(len(L)-1-">
+<meta property="og:description" content="学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://chenxiaoxu.studio/images/blog/shellsort.png">
-<meta property="og:updated_time" content="2018-11-23T10:15:45.498Z">
+<meta property="og:updated_time" content="2019-02-11T08:33:58.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用排序算法的Python实现">
-<meta name="twitter:description" content="学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。 冒泡排序时间复杂度O(n²) 稳定1234567def bubble_sort(L):	for x in range(len(L)-1): ##每次最大元素沉到最下面，len(L)-1 次		for y in range(len(L)-1-">
+<meta name="twitter:description" content="学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。">
 <meta name="twitter:image" content="http://chenxiaoxu.studio/images/blog/shellsort.png">
 
 
@@ -134,6 +134,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1bbdbf73382a466ff75ea55c8f248acc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -189,6 +199,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -335,6 +365,7 @@
 
       
         <p>学习Python的过程中，用Python实现了一下常用的排序算法。其实按照目前的工作感受老说，也不能说常用吧，只能说常见，很多都是大学算法考完之后的久别重逢。</p>
+<a id="more"></a>
 <h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>时间复杂度O(n²) 稳定<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(L)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> range(len(L)<span class="number">-1</span>): <span class="comment">##每次最大元素沉到最下面，len(L)-1 次</span></span><br><span class="line">		<span class="keyword">for</span> y <span class="keyword">in</span> range(len(L)<span class="number">-1</span>-x): <span class="comment">##相邻元素比较。次数减去已完成下沉的x个元素</span></span><br><span class="line">			<span class="keyword">if</span> L[y]&gt;L[y+<span class="number">1</span>]:</span><br><span class="line">				L[y],L[y+<span class="number">1</span>]=L[y+<span class="number">1</span>],L[y]</span><br><span class="line">		<span class="comment">#print(x,":",L)</span></span><br><span class="line">	<span class="keyword">return</span> L</span><br></pre></td></tr></table></figure></p>
 <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>时间复杂度O(n²) 不稳定<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span><span class="params">(L)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> range(len(L)):</span><br><span class="line">		min_index = x <span class="comment">#记录最小元素的索引</span></span><br><span class="line">		<span class="keyword">for</span> y <span class="keyword">in</span> range(x+<span class="number">1</span>,len(L)):<span class="comment">#选择出未排序元素里面最小的</span></span><br><span class="line">			<span class="keyword">if</span> L[y]&lt;L[min_index]:</span><br><span class="line">				min_index = y</span><br><span class="line">		<span class="keyword">if</span> min_index != x:</span><br><span class="line">			L[x],L[min_index] = L[min_index],L[x]</span><br><span class="line">		print(x,<span class="string">":"</span>,L)</span><br><span class="line">	<span class="keyword">return</span> L</span><br></pre></td></tr></table></figure></p>
 <h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><p>时间复杂度O(n²) 稳定</p>
@@ -492,10 +523,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -503,10 +534,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 

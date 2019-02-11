@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。 有两个重载方法1234567891011121314151617181920212223242526272829303132333435363738394041//// 摘要: //     通过使用默认的相等比较">
+<meta name="description" content="Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。">
 <meta name="keywords" content="c#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="详解使用Enumerable.Distinct方法去重">
 <meta property="og:url" content="http://chenxiaoxu.studio/2017/03/27/csharp-distinct/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。 有两个重载方法1234567891011121314151617181920212223242526272829303132333435363738394041//// 摘要: //     通过使用默认的相等比较">
+<meta property="og:description" content="Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://chenxiaoxu.studio/images/csharp-disctint-01.png">
 <meta property="og:image" content="http://chenxiaoxu.studio/images/csharp-disctint-02.png">
-<meta property="og:updated_time" content="2018-11-23T09:48:52.230Z">
+<meta property="og:updated_time" content="2019-02-11T08:33:13.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解使用Enumerable.Distinct方法去重">
-<meta name="twitter:description" content="Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。 有两个重载方法1234567891011121314151617181920212223242526272829303132333435363738394041//// 摘要: //     通过使用默认的相等比较">
+<meta name="twitter:description" content="Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。">
 <meta name="twitter:image" content="http://chenxiaoxu.studio/images/csharp-disctint-01.png">
 
 
@@ -135,6 +135,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1bbdbf73382a466ff75ea55c8f248acc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -190,6 +200,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -336,6 +366,7 @@
 
       
         <p>Enumerable.Distinct 方法 是常用的LINQ扩展方法，属于System.Linq的Enumerable方法，可用于去除数组、集合中的重复元素，还可以自定义去重的规则。</p>
+<a id="more"></a>
 <h3 id="有两个重载方法"><a href="#有两个重载方法" class="headerlink" title="有两个重载方法"></a>有两个重载方法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 摘要: </span></span><br><span class="line"><span class="comment">//     通过使用默认的相等比较器对值进行比较返回序列中的非重复元素。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 参数: </span></span><br><span class="line"><span class="comment">//   source:</span></span><br><span class="line"><span class="comment">//     要从中移除重复元素的序列。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 类型参数: </span></span><br><span class="line"><span class="comment">//   TSource:</span></span><br><span class="line"><span class="comment">//     source 中的元素的类型。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 返回结果: </span></span><br><span class="line"><span class="comment">//     一个 System.Collections.Generic.IEnumerable&lt;T&gt;，包含源序列中的非重复元素。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 异常: </span></span><br><span class="line"><span class="comment">//   System.ArgumentNullException:</span></span><br><span class="line"><span class="comment">//     source 为 null。</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;TSource&gt; Distinct&lt;TSource&gt;(<span class="keyword">this</span> IEnumerable&lt;TSource&gt; source);</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 摘要: </span></span><br><span class="line"><span class="comment">//     通过使用指定的 System.Collections.Generic.IEqualityComparer&lt;T&gt; 对值进行比较返回序列中的非重复元素。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 参数: </span></span><br><span class="line"><span class="comment">//   source:</span></span><br><span class="line"><span class="comment">//     要从中移除重复元素的序列。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//   comparer:</span></span><br><span class="line"><span class="comment">//     用于比较值的 System.Collections.Generic.IEqualityComparer&lt;T&gt;。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 类型参数: </span></span><br><span class="line"><span class="comment">//   TSource:</span></span><br><span class="line"><span class="comment">//     source 中的元素的类型。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 返回结果: </span></span><br><span class="line"><span class="comment">//     一个 System.Collections.Generic.IEnumerable&lt;T&gt;，包含源序列中的非重复元素。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 异常: </span></span><br><span class="line"><span class="comment">//   System.ArgumentNullException:</span></span><br><span class="line"><span class="comment">//     source 为 null。</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;TSource&gt; Distinct&lt;TSource&gt;(<span class="keyword">this</span> IEnumerable&lt;TSource&gt; source, IEqualityComparer&lt;TSource&gt; comparer);</span><br></pre></td></tr></table></figure>
 <p>第一个方法不带参数，第二个方法需要传一个<code>System.Collections.Generic.IEqualityComparer&lt;T&gt;</code>的实现对象</p>
 <h3 id="值类型元素集合去重"><a href="#值类型元素集合去重" class="headerlink" title="值类型元素集合去重"></a>值类型元素集合去重</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt; &#123; <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span> &#125;;</span><br><span class="line">list.Distinct().ToList().ForEach(s =&gt; Console.WriteLine(s));</span><br></pre></td></tr></table></figure>
@@ -495,10 +526,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -506,10 +537,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 

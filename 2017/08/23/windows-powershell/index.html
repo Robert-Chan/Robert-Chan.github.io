@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。 如何支持vim对于常用命令如 ls cat echo 等，都可以正常使用，但是对于 vim 却不支持。我们通过自定义别名的方式可以解决这个问题。 1set-a">
+<meta name="description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。">
 <meta name="keywords" content="windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows PowerShell使用">
 <meta property="og:url" content="http://chenxiaoxu.studio/2017/08/23/windows-powershell/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。 如何支持vim对于常用命令如 ls cat echo 等，都可以正常使用，但是对于 vim 却不支持。我们通过自定义别名的方式可以解决这个问题。 1set-a">
+<meta property="og:description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://chenxiaoxu.studio/images/powershell-003.png">
 <meta property="og:image" content="http://chenxiaoxu.studio/images/powershell-001.png">
-<meta property="og:updated_time" content="2018-11-25T08:19:03.303Z">
+<meta property="og:updated_time" content="2019-02-11T08:34:11.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows PowerShell使用">
-<meta name="twitter:description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。 如何支持vim对于常用命令如 ls cat echo 等，都可以正常使用，但是对于 vim 却不支持。我们通过自定义别名的方式可以解决这个问题。 1set-a">
+<meta name="twitter:description" content="PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。 PowerShell拥有完善的帮助文档。且通过 Get-Help 可以得到相关的帮助信息。">
 <meta name="twitter:image" content="http://chenxiaoxu.studio/images/powershell-003.png">
 
 
@@ -135,6 +135,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1bbdbf73382a466ff75ea55c8f248acc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -190,6 +200,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -337,6 +367,7 @@
       
         <p>PowerShell弥补了windows 命令行工具的诸多不足，使windows平台开发者可以使用很多linux终端的命令，编写脚本，提升工作效率。</p>
 <p>PowerShell拥有完善的帮助文档。且通过 <code>Get-Help</code> 可以得到相关的帮助信息。</p>
+<a id="more"></a>
 <h3 id="如何支持vim"><a href="#如何支持vim" class="headerlink" title="如何支持vim"></a>如何支持vim</h3><p>对于常用命令如 <code>ls</code> <code>cat</code> <code>echo</code> 等，都可以正常使用，但是对于 <code>vim</code> 却不支持。我们通过自定义别名的方式可以解决这个问题。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-alias</span> vim <span class="string">"C:\Program Files (x86)\Vim\vim80\gvim.exe"</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/powershell-003.png" alt="成功使用vim"></p>
@@ -490,10 +521,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -501,10 +532,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 

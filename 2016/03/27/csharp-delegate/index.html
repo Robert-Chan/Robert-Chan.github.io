@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="很多繁杂的代码可以用委托去优雅的实现同样的功能。  委托：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。  定义委托两个string类型的参数、返回值为string类型1public delegate string GetString(string a,string b); Action&amp;lt;T&amp;gt;和Func&amp;lt;T&amp;gt;委托">
+<meta name="description" content="很多繁杂的代码可以用委托去优雅的实现同样的功能。  委托：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。">
 <meta name="keywords" content="c#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用c#委托">
 <meta property="og:url" content="http://chenxiaoxu.studio/2016/03/27/csharp-delegate/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="很多繁杂的代码可以用委托去优雅的实现同样的功能。  委托：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。  定义委托两个string类型的参数、返回值为string类型1public delegate string GetString(string a,string b); Action&amp;lt;T&amp;gt;和Func&amp;lt;T&amp;gt;委托">
+<meta property="og:description" content="很多繁杂的代码可以用委托去优雅的实现同样的功能。  委托：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://chenxiaoxu.studio/images/csharp-delegate-01.png">
-<meta property="og:updated_time" content="2018-11-23T09:27:44.615Z">
+<meta property="og:updated_time" content="2019-02-11T08:32:25.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用c#委托">
-<meta name="twitter:description" content="很多繁杂的代码可以用委托去优雅的实现同样的功能。  委托：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。  定义委托两个string类型的参数、返回值为string类型1public delegate string GetString(string a,string b); Action&amp;lt;T&amp;gt;和Func&amp;lt;T&amp;gt;委托">
+<meta name="twitter:description" content="很多繁杂的代码可以用委托去优雅的实现同样的功能。  委托：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。">
 <meta name="twitter:image" content="http://chenxiaoxu.studio/images/csharp-delegate-01.png">
 
 
@@ -134,6 +134,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1bbdbf73382a466ff75ea55c8f248acc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -189,6 +199,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -338,6 +368,7 @@
 <blockquote>
 <p><strong>委托</strong>：寻址方法的.NET版本，类似于C++中的指针，区别在于类型安全，定于的返回类型和参数类型。委托是对方法引用。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="定义委托"><a href="#定义委托" class="headerlink" title="定义委托"></a>定义委托</h3><p>两个string类型的参数、返回值为string类型<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">string</span> <span class="title">GetString</span>(<span class="params"><span class="keyword">string</span> a,<span class="keyword">string</span> b</span>)</span>;</span><br></pre></td></tr></table></figure></p>
 <p><code>Action&lt;T&gt;</code>和<code>Func&lt;T&gt;</code>委托</p>
 <p>泛型<code>Action&lt;T&gt;</code>委托表示引用一个 <strong>void返回类型</strong> 的方法。</p>
@@ -487,10 +518,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -498,10 +529,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
