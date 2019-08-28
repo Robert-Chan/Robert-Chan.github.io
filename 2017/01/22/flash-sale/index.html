@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="架构,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="聊技术，吹牛逼">
-<meta name="keywords" content="web,java,c#,python,javascript,devops,算法,数据库,nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://chenxiaoxu.studio/categories/index.html">
+<meta name="description" content="秒杀抢购系统设计的核心要素。 高并发、响应快、高吞吐量指标QPS、TPS、响应时间 需要从分布式方案、程序设计等方面考虑。分布式方案要关注系统瓶颈，用redis代替关系数据库来存储依赖信息，避免跨机房网络请求，使用MQ实现数据库操作异步化 如何保证库存的原子操作通过 redis-&amp;gt;incrby(‘product’, -1) 得到递减之后的库存数。 防刷单研究算法分析请求尽可能拦截。Devic">
+<meta name="keywords" content="架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="限时抢购核心&amp;实现要素">
+<meta property="og:url" content="http://chenxiaoxu.studio/2017/01/22/flash-sale/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="聊技术，吹牛逼">
+<meta property="og:description" content="秒杀抢购系统设计的核心要素。 高并发、响应快、高吞吐量指标QPS、TPS、响应时间 需要从分布式方案、程序设计等方面考虑。分布式方案要关注系统瓶颈，用redis代替关系数据库来存储依赖信息，避免跨机房网络请求，使用MQ实现数据库操作异步化 如何保证库存的原子操作通过 redis-&amp;gt;incrby(‘product’, -1) 得到递减之后的库存数。 防刷单研究算法分析请求尽可能拦截。Devic">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-11T07:59:24.121Z">
+<meta property="og:updated_time" content="2019-04-21T13:35:33.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="聊技术，吹牛逼">
+<meta name="twitter:title" content="限时抢购核心&amp;实现要素">
+<meta name="twitter:description" content="秒杀抢购系统设计的核心要素。 高并发、响应快、高吞吐量指标QPS、TPS、响应时间 需要从分布式方案、程序设计等方面考虑。分布式方案要关注系统瓶颈，用redis代替关系数据库来存储依赖信息，避免跨机房网络请求，使用MQ实现数据库操作异步化 如何保证库存的原子操作通过 redis-&amp;gt;incrby(‘product’, -1) 得到递减之后的库存数。 防刷单研究算法分析请求尽可能拦截。Devic">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://chenxiaoxu.studio/categories/">
+  <link rel="canonical" href="http://chenxiaoxu.studio/2017/01/22/flash-sale/">
 
 
 
 
 
-  <title>categories | The Southern Dynasties</title>
+  <title>限时抢购核心&实现要素 | The Southern Dynasties</title>
   
 
 
@@ -251,40 +251,186 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenxiaoxu.studio/2017/01/22/flash-sale/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobertChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Southern Dynasties">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                4 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Architecture/">Architecture</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Languages/">Languages</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/issues/">issues</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">限时抢购核心&实现要素</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-22T18:00:00+08:00">
+                2017-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/22/flash-sale/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/22/flash-sale/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>秒杀抢购系统设计的核心要素。</p>
+<h3 id="高并发、响应快、高吞吐量"><a href="#高并发、响应快、高吞吐量" class="headerlink" title="高并发、响应快、高吞吐量"></a>高并发、响应快、高吞吐量</h3><p>指标QPS、TPS、响应时间</p>
+<p>需要从分布式方案、程序设计等方面考虑。<br>分布式方案要关注系统瓶颈，用redis代替关系数据库来存储依赖信息，避免跨机房网络请求，使用MQ实现数据库操作异步化</p>
+<h3 id="如何保证库存的原子操作"><a href="#如何保证库存的原子操作" class="headerlink" title="如何保证库存的原子操作"></a>如何保证库存的原子操作</h3><p>通过 redis-&gt;incrby(‘product’, -1) 得到递减之后的库存数。</p>
+<h3 id="防刷单"><a href="#防刷单" class="headerlink" title="防刷单"></a>防刷单</h3><p>研究算法分析请求尽可能拦截。<br>DeviceId,IP,UserAgent,Refer,会员ID等参数</p>
+<h3 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h3><p>go、ngx_lua 在高并发和性能方面会更有优势</p>
+<h3 id="如何限流"><a href="#如何限流" class="headerlink" title="如何限流"></a>如何限流</h3><p>方法及限流 AtomicInteger</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag"># 架构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/27/csharp-delegate/" rel="next" title="使用c#委托">
+                <i class="fa fa-chevron-left"></i> 使用c#委托
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/27/csharp-distinct/" rel="prev" title="详解使用Enumerable.Distinct方法去重">
+                详解使用Enumerable.Distinct方法去重 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -327,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -388,6 +543,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#高并发、响应快、高吞吐量"><span class="nav-number">1.</span> <span class="nav-text">高并发、响应快、高吞吐量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何保证库存的原子操作"><span class="nav-number">2.</span> <span class="nav-text">如何保证库存的原子操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防刷单"><span class="nav-number">3.</span> <span class="nav-text">防刷单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言选择"><span class="nav-number">4.</span> <span class="nav-text">语言选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何限流"><span class="nav-number">5.</span> <span class="nav-text">如何限流</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -545,9 +716,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://chenxiaoxu.studio/categories/index.html';
-          this.page.identifier = 'categories/index.html';
-          this.page.title = 'categories';
+          this.page.url = 'http://chenxiaoxu.studio/2017/01/22/flash-sale/';
+          this.page.identifier = '2017/01/22/flash-sale/';
+          this.page.title = '限时抢购核心&实现要素';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://RobertChan.disqus.com/embed.js';

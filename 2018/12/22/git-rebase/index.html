@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="git,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="聊技术，吹牛逼">
-<meta name="keywords" content="web,java,c#,python,javascript,devops,算法,数据库,nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Southern Dynasties">
-<meta property="og:url" content="http://chenxiaoxu.studio/archives/2017/04/index.html">
+<meta name="description" content="修改历史提交参考 https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commithttps://help.github.com/en/articles/using-git-rebase-on-the-command-linehttps://git-scm.com/">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git rebase详解">
+<meta property="og:url" content="http://chenxiaoxu.studio/2018/12/22/git-rebase/index.html">
 <meta property="og:site_name" content="The Southern Dynasties">
-<meta property="og:description" content="聊技术，吹牛逼">
+<meta property="og:description" content="修改历史提交参考 https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commithttps://help.github.com/en/articles/using-git-rebase-on-the-command-linehttps://git-scm.com/">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-20T10:30:27.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Southern Dynasties">
-<meta name="twitter:description" content="聊技术，吹牛逼">
+<meta name="twitter:title" content="git rebase详解">
+<meta name="twitter:description" content="修改历史提交参考 https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commithttps://help.github.com/en/articles/using-git-rebase-on-the-command-linehttps://git-scm.com/">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://chenxiaoxu.studio/archives/2017/04/">
+  <link rel="canonical" href="http://chenxiaoxu.studio/2018/12/22/git-rebase/">
 
 
 
 
 
-  <title>Archive | The Southern Dynasties</title>
+  <title>git rebase详解 | The Southern Dynasties</title>
   
 
 
@@ -154,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -248,72 +249,185 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 8 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenxiaoxu.studio/2018/12/22/git-rebase/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobertChan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Southern Dynasties">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/04/10/python-sortarithmetic/" itemprop="url">
-              
-                <span itemprop="name">常用排序算法的Python实现</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">git rebase详解</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-04-10T17:50:47+08:00" content="2017-04-10">
-          04-10
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-22T18:00:00+08:00">
+                2018-12-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/22/git-rebase/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/22/git-rebase/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h3 id="修改历史提交"><a href="#修改历史提交" class="headerlink" title="修改历史提交"></a>修改历史提交</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p><a href="https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit" target="_blank" rel="noopener">https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit</a><br><a href="https://help.github.com/en/articles/using-git-rebase-on-the-command-line" target="_blank" rel="noopener">https://help.github.com/en/articles/using-git-rebase-on-the-command-line</a><br><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA</a></p>
+</blockquote>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/git-undo/" rel="next" title="git撤销操作 - reset、revert、checkout">
+                <i class="fa fa-chevron-left"></i> git撤销操作 - reset、revert、checkout
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/02/problem-java-vscode-maven-md/" rel="prev" title="解决vscode-java 无法识别jdk1.8语法的问题">
+                解决vscode-java 无法识别jdk1.8语法的问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -321,6 +435,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -341,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -402,6 +539,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改历史提交"><span class="nav-number">1.</span> <span class="nav-text">修改历史提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -535,6 +688,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -552,6 +709,18 @@
       <script id="dsq-count-scr" src="https://RobertChan.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://chenxiaoxu.studio/2018/12/22/git-rebase/';
+          this.page.identifier = '2018/12/22/git-rebase/';
+          this.page.title = 'git rebase详解';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://RobertChan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
